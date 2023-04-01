@@ -1,0 +1,62 @@
+// package controller
+
+// import (
+// 	"encoding/json"
+// 	"fmt"
+// 	"net/http"
+
+// 	"github.com/labstack/echo/v4"
+// )
+
+// func GetProducts(c echo.Context) error {
+// 	urlProduct := "https://tienda.scsintercom.com/api/products?display=[id,price,name,reference,stock_availables[id,id_product_attribute]]&output_format=JSON&ws_key=S7UVTH5XIPYEPRWRHD5SUZNVZKT8SU1I"
+// 	urlCombinations := "https://tienda.scsintercom.com/api/combinations?display=[id, id_product,quantity,reference,product_option_values[id]]&output_format=JSON&ws_key=S7UVTH5XIPYEPRWRHD5SUZNVZKT8SU1I"
+// 	urlOptions := "https://tienda.scsintercom.com/api/product_option_values?display=[id,name]&output_format=JSON&ws_key=S7UVTH5XIPYEPRWRHD5SUZNVZKT8SU1I"
+
+// 	resp1, err := http.Get(urlProduct)
+// 	if err != nil {
+// 		return echo.NewHTTPError(http.StatusNotFound, "Error en la solicitud")
+// 	}
+// 	defer resp1.Body.Close()
+
+// 	fmt.Println(resp1)
+
+// 	var products []map[string]interface{}
+// 	err = json.NewDecoder(resp1.Body).Decode(&products)
+// 	fmt.Println("Esto es lo que viene en products", &products)
+// 	if err != nil {
+// 		return echo.NewHTTPError(http.StatusNotFound, "Producto no encontrado 1")
+// 	}
+
+// 	resp2, err := http.Get(urlCombinations)
+// 	if err != nil {
+// 		return echo.NewHTTPError(http.StatusNotFound, "Error en la solicitud")
+// 	}
+// 	defer resp2.Body.Close()
+
+// 	var combinations []map[string]interface{}
+// 	err = json.NewDecoder(resp1.Body).Decode(&combinations)
+// 	if err != nil {
+// 		return echo.NewHTTPError(http.StatusNotFound, "Producto no encontrado 2")
+// 	}
+
+// 	resp3, err := http.Get(urlOptions)
+// 	if err != nil {
+// 		return echo.NewHTTPError(http.StatusNotFound, "Error en la solicitud")
+// 	}
+// 	defer resp3.Body.Close()
+
+// 	var productOptions []map[string]interface{}
+// 	err = json.NewDecoder(resp1.Body).Decode(&productOptions)
+// 	if err != nil {
+// 		return echo.NewHTTPError(http.StatusNotFound, "Producto no encontrado 3")
+// 	}
+
+// 	combineData := map[string]interface{}{
+// 		"products":              products,
+// 		"combinations":          combinations,
+// 		"product_option_values": productOptions,
+// 	}
+
+// 	return c.JSON(http.StatusOK, combineData)
+// }
