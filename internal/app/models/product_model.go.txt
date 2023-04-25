@@ -1,0 +1,46 @@
+// package models
+
+// import "github.com/CASCOLOCO/boreal.git/internal/interfaces/entity"
+
+// type OptionValueData struct {
+// 	ID   int    `json:"id"`
+// 	Name string `json:"name"`
+// }
+
+// type ProductOption struct {
+// 	ID           int               `json:"id"`
+// 	Name         string            `json:"name"`
+// 	OptionValues []OptionValueData `json:"option_values"`
+// }
+
+// type CombinationData struct {
+// 	ID            int               `json:"id"`
+// 	Quantity      int               `json:"quantity"`
+// 	Reference     string            `json:"reference"`
+// 	OptionValues  []OptionValueData `json:"option_values"`
+// 	ProductOption []ProductOption   `json:"product_option"`
+// }
+
+// type AssociationsData struct {
+// 	StockAvailables     []StockAvailableData            `json:"stock_availables"`
+// 	ProductOptionValues []entity.ProductOptionValueData `json:"product_option_values"`
+// }
+
+// type Product struct {
+// 	ID           int               `json:"id"`
+// 	Price        float64           `json:"price"`
+// 	Quantity     int               `json:"quantity"`
+// 	Name         string            `json:"name"`
+// 	Reference    string            `json:"reference"`
+// 	Combinations []CombinationData `json:"combinations"`
+// 	Associations AssociationsData  `json:"associations"`
+// }
+
+// type StockAvailableData struct {
+// 	ID           int `json:"id"`
+// 	IDProduct    int `json:"id_product"`
+// 	IDProductAtr int `json:"id_product_attribute"`
+// 	IDShop       int `json:"id_shop"`
+// 	IDShopGroup  int `json:"id_shop_group"`
+// 	Quantity     int `json:"quantity"`
+// }

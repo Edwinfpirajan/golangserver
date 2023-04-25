@@ -1,0 +1,31 @@
+package types
+
+type OptionValue struct {
+	ID   int    `json:"id"`
+	Name string `json:"name"`
+}
+
+type ProductOption struct {
+	ID           int           `json:"id"`
+	Name         string        `json:"name"`
+	OptionValues []OptionValue `json:"option_values"`
+}
+
+type Combination struct {
+	ID            int             `json:"id"`
+	Quantity      int             `json:"quantity"`
+	Reference     string          `json:"reference"`
+	ProductID     int             `json:"id_product"`
+	Product       *Product        `json:"-"`
+	OptionValues  []OptionValue   `json:"option_values"`
+	ProductOption []ProductOption `json:"product_option"`
+}
+
+type Product struct {
+	ID           int           `json:"id"`
+	Price        float64       `json:"price"`
+	Quantity     int           `json:"quantity"`
+	Name         string        `json:"name"`
+	Reference    string        `json:"reference"`
+	Combinations []Combination `json:"combinations"`
+}
